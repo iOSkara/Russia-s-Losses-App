@@ -7,15 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		043B186C288817CC00E75C54 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043B186B288817CC00E75C54 /* DetailsViewController.swift */; };
+		043B187028886D5900E75C54 /* EquipmentLosses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043B186F28886D5900E75C54 /* EquipmentLosses.swift */; };
+		043B187728897FED00E75C54 /* equipment.json in Resources */ = {isa = PBXBuildFile; fileRef = 043B187528897FED00E75C54 /* equipment.json */; };
+		043B187828897FED00E75C54 /* personnel.json in Resources */ = {isa = PBXBuildFile; fileRef = 043B187628897FED00E75C54 /* personnel.json */; };
 		0492117A288728CB00A8E88F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04921179288728CB00A8E88F /* AppDelegate.swift */; };
 		0492117C288728CB00A8E88F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0492117B288728CB00A8E88F /* SceneDelegate.swift */; };
 		0492117E288728CB00A8E88F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0492117D288728CB00A8E88F /* ViewController.swift */; };
 		04921181288728CB00A8E88F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0492117F288728CB00A8E88F /* Main.storyboard */; };
 		04921183288728CC00A8E88F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04921182288728CC00A8E88F /* Assets.xcassets */; };
 		04921186288728CC00A8E88F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04921184288728CC00A8E88F /* LaunchScreen.storyboard */; };
+		04921190288729D100A8E88F /* PersonnelLosses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0492118F288729D100A8E88F /* PersonnelLosses.swift */; };
+		0492119228872AFB00A8E88F /* DataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0492119128872AFB00A8E88F /* DataLoader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		043B186B288817CC00E75C54 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		043B186F28886D5900E75C54 /* EquipmentLosses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipmentLosses.swift; sourceTree = "<group>"; };
+		043B187528897FED00E75C54 /* equipment.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = equipment.json; sourceTree = "<group>"; };
+		043B187628897FED00E75C54 /* personnel.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = personnel.json; sourceTree = "<group>"; };
 		04921176288728CB00A8E88F /* Russia's Losses.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Russia's Losses.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		04921179288728CB00A8E88F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0492117B288728CB00A8E88F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +34,8 @@
 		04921182288728CC00A8E88F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		04921185288728CC00A8E88F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		04921187288728CC00A8E88F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0492118F288729D100A8E88F /* PersonnelLosses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonnelLosses.swift; sourceTree = "<group>"; };
+		0492119128872AFB00A8E88F /* DataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +68,45 @@
 		04921178288728CB00A8E88F /* Russia's Losses */ = {
 			isa = PBXGroup;
 			children = (
+				04AEF4FB2889841A0013620D /* Model */,
+				04AEF4FA288984130013620D /* View */,
+				04AEF4F9288984090013620D /* Controller */,
+				043B187528897FED00E75C54 /* equipment.json */,
+				043B187628897FED00E75C54 /* personnel.json */,
 				04921179288728CB00A8E88F /* AppDelegate.swift */,
 				0492117B288728CB00A8E88F /* SceneDelegate.swift */,
-				0492117D288728CB00A8E88F /* ViewController.swift */,
-				0492117F288728CB00A8E88F /* Main.storyboard */,
 				04921182288728CC00A8E88F /* Assets.xcassets */,
 				04921184288728CC00A8E88F /* LaunchScreen.storyboard */,
 				04921187288728CC00A8E88F /* Info.plist */,
 			);
 			path = "Russia's Losses";
+			sourceTree = "<group>";
+		};
+		04AEF4F9288984090013620D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				0492117D288728CB00A8E88F /* ViewController.swift */,
+				043B186B288817CC00E75C54 /* DetailsViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		04AEF4FA288984130013620D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0492117F288728CB00A8E88F /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		04AEF4FB2889841A0013620D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0492118F288729D100A8E88F /* PersonnelLosses.swift */,
+				043B186F28886D5900E75C54 /* EquipmentLosses.swift */,
+				0492119128872AFB00A8E88F /* DataLoader.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -125,9 +167,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				043B187728897FED00E75C54 /* equipment.json in Resources */,
 				04921186288728CC00A8E88F /* LaunchScreen.storyboard in Resources */,
 				04921183288728CC00A8E88F /* Assets.xcassets in Resources */,
 				04921181288728CB00A8E88F /* Main.storyboard in Resources */,
+				043B187828897FED00E75C54 /* personnel.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,9 +182,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0492119228872AFB00A8E88F /* DataLoader.swift in Sources */,
+				04921190288729D100A8E88F /* PersonnelLosses.swift in Sources */,
 				0492117E288728CB00A8E88F /* ViewController.swift in Sources */,
 				0492117A288728CB00A8E88F /* AppDelegate.swift in Sources */,
 				0492117C288728CB00A8E88F /* SceneDelegate.swift in Sources */,
+				043B187028886D5900E75C54 /* EquipmentLosses.swift in Sources */,
+				043B186C288817CC00E75C54 /* DetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
