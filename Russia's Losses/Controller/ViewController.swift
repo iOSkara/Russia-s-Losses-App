@@ -9,26 +9,26 @@ import UIKit
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    let dataPersonnel = DataLoader().personnelData
-    let dataEquipment = DataLoader().equipmentData
+    var dataPersonnel = DataLoader().personnelData
+    var dataEquipment = DataLoader().equipmentData
     
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        //print(data)
         
         tableView.delegate = self
         tableView.dataSource = self
         
-        navigationItem.title = "Russia's losses"
+        navigationItem.title = "Russia's Losses ꑭ🇺🇦ꑭ"
         navigationItem.backButtonTitle = "Back"
         
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationBar.largeTitleTextAttributes = [
             NSAttributedString.Key.font: UIFont.systemFont(ofSize: 34, weight: .semibold)
         ]
+        self.navigationItem.backBarButtonItem?.tintColor = .white
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -51,12 +51,17 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         cell.textLabel?.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
         cell.detailTextLabel?.font = UIFont.systemFont(ofSize: 15, weight: .regular)
-        
+        cell.accessoryType =  UITableViewCell.AccessoryType.detailDisclosureButton
+        cell.layer.cornerRadius = 8
+        cell.layer.masksToBounds = true
+        cell.layer.borderWidth = 1
+        cell.layer.borderColor = UIColor.secondaryLabel.cgColor
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: "showDetails", sender: self)
+        tableView.cellForRow(at: indexPath)?.isSelected = false
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -64,9 +69,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             destination.dayPersonnel = dataPersonnel[(tableView.indexPathForSelectedRow?.row)!]
             destination.dayEquipment = dataEquipment[(tableView.indexPathForSelectedRow?.row)!]
             
-            if tableView.indexPathForSelectedRow?.row != 0 {
-                destination.previousDayPersonnel = dataPersonnel[(tableView.indexPathForSelectedRow!.row-1)]
-                destination.previousDayEquipment = dataEquipment[(tableView.indexPathForSelectedRow!.row-1)]
+            if tableView.indexPathForSelectedRow?.row != dataPersonnel.count-1 {
+                destination.previousDayPersonnel = dataPersonnel[(tableView.indexPathForSelectedRow!.row+1)]
+                destination.previousDayEquipment = dataEquipment[(tableView.indexPathForSelectedRow!.row+1)]
             }
         }
     }

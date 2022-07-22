@@ -9,6 +9,8 @@ import UIKit
 
 class DetailsViewController: UIViewController {
 
+    @IBOutlet weak var mainStackView: UIStackView!
+    
     @IBOutlet weak var dayLabel: UILabel!
     @IBOutlet weak var dayStackView: UIStackView!
     
@@ -67,11 +69,39 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var directionOfGreatestLossesStackView: UIStackView!
     
     
+    @IBAction func apcInfoPressed(_ sender: UIButton) {
+        let alert = UIAlertController(title: "APC", message: "Armored Personnel Carrier", preferredStyle: UIAlertController.Style.alert)
+
+        alert.addAction(UIAlertAction(title: "Close", style: UIAlertAction.Style.default, handler: nil))
+
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    @IBAction func mrlInfoPressed(_ sender: UIButton) {
+        let alert = UIAlertController(title: "MRL", message: "Multiple Rocket Launcher", preferredStyle: UIAlertController.Style.alert)
+
+        alert.addAction(UIAlertAction(title: "Close", style: UIAlertAction.Style.default, handler: nil))
+
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    @IBAction func dronesInfoPressed(_ sender: UIButton) {
+        let alert = UIAlertController(title: "UAV & RPA", message: "UAV - Unmanned Aerial Vehicle\nRPA - Remotely Piloted Vehicle", preferredStyle: UIAlertController.Style.alert)
+
+        alert.addAction(UIAlertAction(title: "Close", style: UIAlertAction.Style.default, handler: nil))
+
+        self.present(alert, animated: true, completion: nil)
+    }
+    
     var dayPersonnel: PersonnelLosses?
     var previousDayPersonnel: PersonnelLosses?
     
     var dayEquipment: EquipmentLosses?
     var previousDayEquipment: EquipmentLosses?
+    
+    enum targets {
+        case personnel, POW, aircraft, helicopter, tank, apc, fieldArtillery, mrl, militaryAuto, fuelTank, drone, navalShip, antiAircraftWarfare, specialEquipment, mobileSrbmSystem, vehiclesAndFuelTanks, cruiseMissiles, greatestLossesDirection
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -98,19 +128,14 @@ class DetailsViewController: UIViewController {
         var diffVehiclesAndFuelTanksLabel = 0
         var diffCruiseMissilesLabel = 0
         
-        enum targets {
-            case personnel, POW, aircraft, helicopter, tank, apc, fieldArtillery, mrl, militaryAuto, fuelTank, drone, navalShip, antiAircraftWarfare, specialEquipment, mobileSrbmSystem, vehiclesAndFuelTanks, cruiseMissiles, greatestLossesDirection
-        }
-        
+
         if dayPersonnel?.day != 2 {
-            
             checkIfNilAndCalculateDifference()
-            dayLabel.text = String(dayPersonnel!.day)
-            
         } else {
-            
             setValueForLabelWithoutDifference()
         }
+        
+        //func addBorderForStack
         
         func setValueForLabelWithoutDifference() {
             
@@ -129,9 +154,14 @@ class DetailsViewController: UIViewController {
             setValueForLabel(label: droneLabel, difference: 0, target: .drone)
             setValueForLabel(label: navalShipLabel, difference: 0, target: .navalShip)
             setValueForLabel(label: antiAircraftWarfareLabel, difference: 0, target: .antiAircraftWarfare)
+
         }
         
+        
+        
         func setValueForLabel(label: UILabel, difference: Int, target: targets) {
+            
+            dayLabel.text = String(dayPersonnel!.day)
             
             switch target {
                 case .personnel:
@@ -254,7 +284,7 @@ class DetailsViewController: UIViewController {
                     }
                     break
                 case .greatestLossesDirection:
-                    label.text = String(dayEquipment!.greatestLossesDirection!)
+                    label.text = " " + String(dayEquipment!.greatestLossesDirection!)
                     break
             }
         }
@@ -442,3 +472,5 @@ class DetailsViewController: UIViewController {
     }
 
 }
+
+

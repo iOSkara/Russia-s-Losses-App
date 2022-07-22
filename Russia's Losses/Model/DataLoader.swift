@@ -29,9 +29,12 @@ public class DataLoader {
                     
                     let dataFromJsonPersonnel = try jsonDecoder.decode([PersonnelLosses].self, from:  dataPersonnelLosses)
                     let dataFromJsonEquipment = try jsonDecoder.decode([EquipmentLosses].self, from:  dataEquipmentLosses)
-                    
+
                     self.personnelData = dataFromJsonPersonnel
                     self.equipmentData = dataFromJsonEquipment
+                    self.personnelData.sort { $0.day > $1.day }
+                    self.equipmentData.sort { $0.day! > $1.day! }
+                    
                 } catch {
                     print(error)
                 }
