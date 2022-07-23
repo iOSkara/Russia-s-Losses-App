@@ -20,7 +20,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         tableView.delegate = self
         tableView.dataSource = self
         
-        navigationItem.title = "Russia's Losses ꑭ🇺🇦ꑭ"
+        navigationItem.title = "Russia's Losses 🇺🇦"
         navigationItem.backButtonTitle = "Back"
         
         navigationController?.navigationBar.prefersLargeTitles = true

@@ -135,7 +135,6 @@ class DetailsViewController: UIViewController {
             setValueForLabelWithoutDifference()
         }
         
-        //func addBorderForStack
         
         func setValueForLabelWithoutDifference() {
             
